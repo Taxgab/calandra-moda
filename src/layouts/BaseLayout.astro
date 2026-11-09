@@ -1,0 +1,62 @@
+---
+import '@fontsource-variable/cormorant-garamond/wght.css';
+import '@fontsource-variable/cormorant-garamond/wght-italic.css';
+import '@fontsource-variable/jost/wght.css';
+import '../styles/global.css';
+
+// Precarga de las tres fuentes del primer render (subset latino) para reducir el
+// desplazamiento de texto por swap y adelantar el LCP.
+import cormorantNormal from '@fontsource-variable/cormorant-garamond/files/cormorant-garamond-latin-wght-normal.woff2?url';
+import cormorantItalic from '@fontsource-variable/cormorant-garamond/files/cormorant-garamond-latin-wght-italic.woff2?url';
+import jostNormal from '@fontsource-variable/jost/files/jost-latin-wght-normal.woff2?url';
+
+import Footer from '../components/Footer.astro';
+import Header from '../components/Header.astro';
+import SEO from '../components/SEO.astro';
+import WhatsAppFloat from '../components/WhatsAppFloat.astro';
+import type { FaqItem } from '../data/faq';
+import { usingTestImages } from '../data/gallery';
+import { site } from '../data/site';
+
+interface Props {
+  title?: string;
+  description?: string;
+  noindex?: boolean;
+  faqs?: FaqItem[];
+}
+
+const { title, description, noindex = false, faqs = [] } = Astro.props;
+---
+
+<!doctype html>
+<html lang={site.lang}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="/favicon.svg" />
+    <link rel="preload" href={cormorantNormal} as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href={cormorantItalic} as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href={jostNormal} as="font" type="font/woff2" crossorigin />
+    <SEO title={title} description={description} noindex={noindex} faqs={faqs} />
+    <slot name="head" />
+  </head>
+  <body class="min-h-svh bg-ivory text-ink">
+    <a href="#contenido" class="skip-link">Saltar al contenido</a>
+    {
+      usingTestImages && (
+        <div class="border-b border-ivory/15 bg-ink text-ivory">
+          <p class="shell px-4 py-2 text-center text-[0.55rem] uppercase leading-relaxed tracking-[0.18em] sm:text-[0.6rem]">
+            Maqueta · Fotografías de prueba que no corresponden a productos de Calandra Moda
+          </p>
+        </div>
+      )
+    }
+    <Header />
+    <main id="contenido">
+      <slot />
+    </main>
+    <Footer />
+    <WhatsAppFloat />
+  </body>
+</html>

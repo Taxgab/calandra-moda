@@ -1,0 +1,26 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="Página no encontrada | Calandra Moda"
+  description="La página que buscás no existe. Volvé al inicio para conocer las colecciones de Calandra Moda en Lanús."
+  noindex
+>
+  <section class="shell flex min-h-[62svh] flex-col items-center justify-center py-20 text-center md:py-28">
+    <p class="eyebrow">Error 404</p>
+    <h1
+      class="mt-6 max-w-[30rem] font-display text-[clamp(2.4rem,6vw,4.2rem)] font-normal leading-[1.05] tracking-[-0.015em] text-ink"
+    >
+      Esta página no existe.
+    </h1>
+    <p class="mt-5 max-w-[26rem] text-[0.98rem] leading-[1.85] text-muted">
+      Puede que el enlace haya cambiado. Volvé al inicio para recorrer las colecciones o escribinos
+      y te orientamos.
+    </p>
+    <div class="mt-9 flex flex-col items-center gap-3 sm:flex-row">
+      <a href="/" class="btn btn-primary">Volver al inicio</a>
+      <a href="/#categorias" class="btn btn-outline">Ver colecciones</a>
+    </div>
+  </section>
+</BaseLayout>

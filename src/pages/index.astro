@@ -1,0 +1,25 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Categories from '../components/Categories.astro';
+import Contact from '../components/Contact.astro';
+import CtaBand from '../components/CtaBand.astro';
+import Experience from '../components/Experience.astro';
+import Faq from '../components/Faq.astro';
+import FinalCta from '../components/FinalCta.astro';
+import Gallery from '../components/Gallery.astro';
+import Hero from '../components/Hero.astro';
+import Story from '../components/Story.astro';
+import { faqs } from '../data/faq';
+---
+
+<BaseLayout faqs={faqs}>
+  <Hero />
+  <Categories />
+  <CtaBand />
+  <Experience />
+  <Gallery />
+  <Story />
+  <Faq />
+  <FinalCta />
+  <Contact />
+</BaseLayout>

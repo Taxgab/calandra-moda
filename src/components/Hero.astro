@@ -1,0 +1,75 @@
+---
+import { Image } from 'astro:assets';
+import { ArrowRight } from '@lucide/astro';
+import { heroImage } from '../data/gallery';
+import { site } from '../data/site';
+import TestImageBadge from './TestImageBadge.astro';
+import WhatsAppCta from './WhatsAppCta.astro';
+---
+
+<section id="inicio" class="relative overflow-hidden bg-ivory">
+  <div
+    class="shell grid items-center gap-12 pb-16 pt-12 md:pt-16 lg:grid-cols-[1.02fr_0.98fr] lg:gap-16 lg:pb-24 lg:pt-20"
+  >
+    <div class="max-w-[36rem]">
+      <p class="eyebrow">Boutique de vestidos · {site.city}</p>
+
+      <h1
+        class="mt-7 font-display text-[clamp(2.65rem,6.1vw,4.85rem)] font-normal leading-[1.03] tracking-[-0.015em] text-ink"
+      >
+        El vestido perfecto empieza con una <em class="italic text-gold">atención especial</em>.
+      </h1>
+
+      <p class="mt-7 max-w-[31rem] text-[1rem] leading-[1.9] text-muted">
+        En Calandra Moda te acompañamos a encontrar el vestido para tu gran momento, con atención
+        personalizada y asesoramiento durante toda la elección.
+      </p>
+
+      <div class="mt-10 flex flex-col items-start gap-5 sm:flex-row sm:items-center sm:gap-7">
+        <WhatsAppCta context="hero" label="Quiero recibir asesoramiento" class="w-full sm:w-auto" />
+        <a href="#categorias" class="link-underline group text-ink">
+          Descubrir la colección
+          <ArrowRight
+            size={15}
+            stroke-width={1.5}
+            aria-hidden="true"
+            class="transition-transform duration-500 group-hover:translate-x-1"
+          />
+        </a>
+      </div>
+
+      <div class="mt-12 flex items-center gap-5 border-t border-line pt-6 md:mt-14">
+        <p class="font-display text-[2.6rem] leading-none text-ink">
+          {site.experienceYears}<span class="text-gold">+</span>
+        </p>
+        <p class="max-w-[14rem] text-[0.68rem] uppercase leading-[1.9] tracking-[0.16em] text-muted">
+          Años acompañando elecciones en Lanús Este
+        </p>
+      </div>
+    </div>
+
+    <div class="relative">
+      <div class="media-zoom relative aspect-[4/5] w-full">
+        <Image
+          src={heroImage}
+          alt="Imagen de prueba: detalle de un vestido de novia en tono marfil."
+          widths={[480, 720, 960]}
+          sizes="(min-width: 1024px) 46vw, 100vw"
+          format="webp"
+          quality={80}
+          loading="eager"
+          fetchpriority="high"
+          decoding="async"
+          class="h-full w-full object-cover"
+        />
+        <TestImageBadge />
+      </div>
+      <div
+        class="mt-4 flex items-baseline justify-between gap-4 text-[0.55rem] uppercase tracking-[0.2em] text-muted"
+      >
+        <span>Novias · Fiesta · Celebraciones</span>
+        <span class="hidden shrink-0 sm:inline">Fotografía de prueba</span>
+      </div>
+    </div>
+  </div>
+</section>

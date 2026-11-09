@@ -1,0 +1,53 @@
+---
+import { Plus } from '@lucide/astro';
+import { faqs } from '../data/faq';
+import WhatsAppCta from './WhatsAppCta.astro';
+---
+
+<section id="preguntas" class="border-t border-line/70 bg-ivory">
+  <div class="shell py-20 md:py-28">
+    <div class="grid gap-10 lg:grid-cols-[0.82fr_1.18fr] lg:gap-20">
+      <div>
+        <p class="eyebrow">Preguntas frecuentes</p>
+        <h2
+          class="mt-6 max-w-[22rem] font-display text-[clamp(2.05rem,4.2vw,3.2rem)] font-normal leading-[1.08] tracking-[-0.01em] text-ink"
+        >
+          Lo que más nos preguntan
+        </h2>
+        <p class="mt-5 max-w-[24rem] text-[0.95rem] leading-[1.85] text-muted">
+          Respuestas claras sobre la boutique, las colecciones y cómo empezar la elección.
+        </p>
+        <WhatsAppCta
+          context="contacto"
+          label="Hacer otra consulta"
+          variant="inline"
+          icon={false}
+          class="mt-7"
+        />
+      </div>
+
+      <div class="border-t border-line">
+        {
+          faqs.map((faq, index) => (
+            <details class="group border-b border-line" open={index === 0}>
+              <summary class="flex cursor-pointer list-none items-start justify-between gap-6 py-6 [&::-webkit-details-marker]:hidden">
+                <h3 class="font-display text-[1.18rem] font-normal leading-snug text-ink">
+                  {faq.question}
+                </h3>
+                <span class="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center border border-line text-ink-soft transition-colors duration-300 group-hover:border-gold group-hover:text-gold">
+                  <Plus
+                    size={13}
+                    stroke-width={1.5}
+                    aria-hidden="true"
+                    class="transition-transform duration-300 group-open:rotate-45"
+                  />
+                </span>
+              </summary>
+              <p class="max-w-[38rem] pb-7 pr-10 text-[0.92rem] leading-[1.9] text-muted">{faq.answer}</p>
+            </details>
+          ))
+        }
+      </div>
+    </div>
+  </div>
+</section>

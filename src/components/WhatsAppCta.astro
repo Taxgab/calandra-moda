@@ -1,0 +1,44 @@
+---
+import { MessageCircle } from '@lucide/astro';
+import { isWhatsAppConfigured, whatsappUrl, type WhatsAppContext } from '../data/site';
+
+interface Props {
+  context: WhatsAppContext;
+  label: string;
+  variant?: 'primary' | 'outline' | 'light' | 'inline';
+  class?: string;
+  icon?: boolean;
+  ariaLabel?: string;
+}
+
+const {
+  context,
+  label,
+  variant = 'primary',
+  class: className = '',
+  icon = true,
+  ariaLabel,
+} = Astro.props;
+
+const variantClass = {
+  primary: 'btn btn-primary',
+  outline: 'btn btn-outline',
+  light: 'btn btn-light',
+  inline: 'link-underline',
+}[variant];
+
+// Mientras el número no esté confirmado, el enlace apunta a la sección de contacto.
+const linkProps = isWhatsAppConfigured ? { target: '_blank', rel: 'noopener noreferrer' } : {};
+---
+
+<a
+  href={whatsappUrl(context)}
+  {...linkProps}
+  class:list={[variantClass, className]}
+  aria-label={ariaLabel}
+  data-cta="whatsapp"
+  data-cta-context={context}
+>
+  {icon && <MessageCircle size={16} stroke-width={1.5} aria-hidden="true" />}
+  <span>{label}</span>
+</a>

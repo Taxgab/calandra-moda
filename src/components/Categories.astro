@@ -1,0 +1,62 @@
+---
+import { categoryImages } from '../data/gallery';
+import CategoryCard from './CategoryCard.astro';
+import SectionIntro from './SectionIntro.astro';
+
+const categories = [
+  {
+    index: '01',
+    title: 'Novias',
+    description:
+      'Vestidos de novia para el día que imaginaste, elegidos con calma y con asesoramiento durante toda la elección.',
+    href: '#galeria-novias',
+    image: categoryImages.novias,
+    alt: 'Imagen de prueba: vestidos de novia colgados en un perchero.',
+    offset: '',
+  },
+  {
+    index: '02',
+    title: 'Fiesta y casamiento',
+    description:
+      'Piezas para invitadas y casamientos, pensadas según la ocasión, la silueta y el estilo de cada persona.',
+    href: '#galeria-fiesta',
+    image: categoryImages.fiesta,
+    alt: 'Imagen de prueba: vestido en tono topo en movimiento.',
+    offset: 'lg:mt-16',
+  },
+  {
+    index: '03',
+    title: 'Celebraciones',
+    description:
+      'Vestidos para ocasiones especiales, con la atención de una boutique que escucha tu estilo antes de mostrarte opciones.',
+    href: '#galeria-celebraciones',
+    image: categoryImages.celebraciones,
+    alt: 'Imagen de prueba: vestido largo en tono marfil con flecos.',
+    offset: 'lg:mt-8',
+  },
+] as const;
+---
+
+<section id="categorias" class="border-t border-line/70 bg-ivory">
+  <div class="shell py-20 md:py-28 lg:py-32">
+    <SectionIntro
+      eyebrow="Colecciones"
+      title="Un vestido para cada ocasión"
+      lead="Tres caminos, una misma forma de acompañarte: escuchar qué buscás y asesorarte para que la elección sea tuya, con la tranquilidad de no estar sola en el proceso."
+    />
+
+    <div class="mt-14 grid gap-12 md:grid-cols-3 md:gap-8 lg:mt-20 lg:gap-12">
+      {categories.map((category) => (
+        <CategoryCard
+          index={category.index}
+          title={category.title}
+          description={category.description}
+          href={category.href}
+          image={category.image}
+          alt={category.alt}
+          offset={category.offset}
+        />
+      ))}
+    </div>
+  </div>
+</section>

@@ -1,0 +1,22 @@
+---
+import { testImageLabel, usingTestImages } from '../data/gallery';
+
+interface Props {
+  class?: string;
+}
+
+const { class: className = '' } = Astro.props;
+---
+
+{
+  usingTestImages && (
+    <span
+      class:list={[
+        'pointer-events-none absolute bottom-3 left-3 z-10 bg-ink/78 px-2.5 py-1 text-[0.5rem] uppercase tracking-[0.22em] text-ivory',
+        className,
+      ]}
+    >
+      {testImageLabel}
+    </span>
+  )
+}
