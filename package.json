@@ -11,7 +11,8 @@
     "build": "astro build",
     "preview": "astro preview",
     "check": "astro check",
-    "placeholders": "powershell -NoProfile -ExecutionPolicy Bypass -File scripts/generate-placeholders.ps1"
+    "placeholders": "powershell -NoProfile -ExecutionPolicy Bypass -File scripts/generate-placeholders.ps1",
+    "test-images": "powershell -NoProfile -ExecutionPolicy Bypass -File scripts/fetch-test-images.ps1"
   },
   "dependencies": {
     "@astrojs/sitemap": "^3.7.4",

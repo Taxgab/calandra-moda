@@ -5,7 +5,7 @@
 Add-Type -AssemblyName System.Drawing
 
 $root = Split-Path -Parent $PSScriptRoot
-$outDir = Join-Path $root 'src\assets\images'
+$outDir = Join-Path $root 'src\assets\images\placeholders'
 $publicDir = Join-Path $root 'public\images'
 New-Item -ItemType Directory -Force -Path $outDir | Out-Null
 New-Item -ItemType Directory -Force -Path $publicDir | Out-Null
