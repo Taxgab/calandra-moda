@@ -55,6 +55,7 @@ genérica.
 | T13 | Optimización de imágenes (WebP, srcset, preload de fuentes) | Inline | Hecho | CLS 0, LCP 0.8 s local |
 | T14 | Verificación de tipos, build, responsive y accesibilidad | Inline + Lighthouse | Hecho | `astro check` 0 errores; Lighthouse 100/100/100/100 |
 | T15 | Documentación (README, PENDIENTES) | Inline | Hecho | Archivos en la raíz |
+| T16 | Fotografías de prueba CC0 rotuladas para mostrar la maqueta completa | Inline | Hecho | 14 JPG recortados + `CREDITS.md` + barra global + etiqueta por imagen |
 
 Nota de proceso: la implementación se ejecutó como un único hilo de escritura (sistema de diseño
 coherente entre las 14 secciones), y la verificación se hizo con herramientas externas
@@ -73,7 +74,7 @@ cada corrección.
 - **Placeholders JPEG generados:** se pueden reemplazar por fotografías autorizadas sin tocar código y
   permiten demostrar el pipeline de `astro:assets`.
 - **Menú móvil con `<details>`:** funciona sin JavaScript; el script solo cierra el panel al navegar.
-- **Sin animaciones de entrada:** protege LCP y evita contenido oculto si falla JavaScript.
+- **Sin animaciones de entrada:** protege LCP y evita contenido oculto si falla JavaScript. **Fotografías de prueba CC0:** permiten ver la maqueta terminada sin usar material de otras boutiques; se rotulan en la barra superior, en cada imagen, en la galería, en el pie y en los `alt`, y se desactivan con `usingTestImages = false`.
 
 ## Verificación
 
@@ -83,7 +84,7 @@ cada corrección.
 - Anclas internas: todas resuelven (incluida la 404).
 - Imágenes: 14/14 con `alt`, `width`, `height` y `loading`.
 - JSON-LD: parsea, 3 nodos, sin teléfono/horarios/rating.
-- Lighthouse (build de producción, perfil móvil): Performance 100 · A11y 100 · Best Practices 100 · SEO 100.
+- Lighthouse (build de producción, perfil móvil): Performance 100 · A11y 100 · Best Practices 100 · SEO 100 (con fotografías de prueba, 691 KiB totales).
 
 ## Siguiente paso
 

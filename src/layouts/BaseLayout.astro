@@ -15,6 +15,7 @@ import Header from '../components/Header.astro';
 import SEO from '../components/SEO.astro';
 import WhatsAppFloat from '../components/WhatsAppFloat.astro';
 import type { FaqItem } from '../data/faq';
+import { usingTestImages } from '../data/gallery';
 import { site } from '../data/site';
 
 interface Props {
@@ -42,6 +43,15 @@ const { title, description, noindex = false, faqs = [] } = Astro.props;
   </head>
   <body class="min-h-svh bg-ivory text-ink">
     <a href="#contenido" class="skip-link">Saltar al contenido</a>
+    {
+      usingTestImages && (
+        <div class="border-b border-ivory/15 bg-ink text-ivory">
+          <p class="shell px-4 py-2 text-center text-[0.55rem] uppercase leading-relaxed tracking-[0.18em] sm:text-[0.6rem]">
+            Maqueta · Fotografías de prueba que no corresponden a productos de Calandra Moda
+          </p>
+        </div>
+      )
+    }
     <Header />
     <main id="contenido">
       <slot />

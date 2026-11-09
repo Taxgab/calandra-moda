@@ -10,13 +10,11 @@ se activa completando los valores indicados.
 | **Horarios de atención** | No se publican. El bloque de contacto aclara que se publican al confirmarse. | `src/data/site.ts` → `hours` (y agregar el bloque visible en `Contact.astro`) | Se puede mostrar el horario en la sección de contacto y sumarlo a los datos estructurados. |
 | **Dominio definitivo** | Provisoriamente `https://www.calandramoda.com.ar`. | `astro.config.mjs` → `site`, `src/data/site.ts` → `SITE_URL`, `public/robots.txt` | Canonical, Open Graph, sitemap y JSON-LD quedan con la URL real. |
 | **Logotipo en alta calidad** | Wordmark tipográfico provisorio (serif + "MODA" en versalitas). | Reemplazar por SVG en `src/components/Header.astro`, `Footer.astro` y `public/favicon.svg` | Identidad visual definitiva. |
-| **Fotografías reales autorizadas** | Placeholders de marca generados localmente, identificados como provisorios. | `src/assets/images/` (mismo nombre de archivo) + `alt` en `src/data/gallery.ts` | Imágenes reales optimizadas automáticamente a WebP. |
+| **Fotografías reales autorizadas** | Fotografías de prueba CC0 (StockSnap) rotuladas en la página, en cada imagen y en los `alt`; se desactivan con `usingTestImages = false`. | `src/assets/images/` (mismo nombre de archivo) + `alt` en `src/data/gallery.ts` | Imágenes reales optimizadas automáticamente a WebP, sin rótulos de maqueta. |
 | **Correo electrónico de contacto** | No se publica. | `src/data/site.ts` → `contact.email` | Disponible para sumar al canal de contacto. |
 | **Texto institucional definitivo** | Redacción provisoria basada en los datos confirmados (rubro, especialidades, +20 años, dirección). | `src/components/Story.astro` y `src/components/Experience.astro` | Ajuste de tono y detalles de trayectoria sin inventar hitos. |
 
-## Datos que el sitio NO publica a propósito
-
-- Teléfono fijo o celular distinto del WhatsApp.
+## Datos que el sitio NO publica a propósito- Teléfono fijo o celular distinto del WhatsApp.
 - Horarios, precios, promociones, financiación.
 - Reseñas, valoraciones o cantidad de clientas.
 - Marcas o diseñadores que la boutique comercialice.

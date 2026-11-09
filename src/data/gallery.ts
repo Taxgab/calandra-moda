@@ -8,10 +8,16 @@ import type { WhatsAppContext } from './site';
  * 1. Guardar la fotografía en src/assets/images con el MISMO nombre de archivo
  *    (por ejemplo hero.jpg) y el mismo encuadre vertical u horizontal.
  * 2. Actualizar el texto alternativo de cada slot en este archivo.
- * 3. Correr `npm run build`.
+ * 3. Cambiar `usingTestImages` a false y correr `npm run build`.
  *
- * Las imágenes provisorias se regeneran con `npm run placeholders`.
+ * Las fotografías actuales son de prueba (licencia CC0): se descargan y recortan
+ * con `npm run test-images`. Los placeholders abstractos se generan con
+ * `npm run placeholders` en src/assets/images/placeholders.
  */
+export const usingTestImages = true;
+
+export const testImageLabel = 'Imagen de prueba';
+
 const modules = import.meta.glob<{ default: ImageMetadata }>('../assets/images/*.jpg', {
   eager: true,
 });
@@ -65,26 +71,26 @@ export const galleryChapters: GalleryChapter[] = [
     items: [
       {
         src: image('gallery-novias-01'),
-        alt: 'Vestido de novia de caída fluida en tono marfil (imagen provisoria).',
+        alt: 'Imagen de prueba: detalle de un vestido de novia en tono marfil.',
         span: 'md:col-span-5',
         ratio: 'aspect-[3/4]',
       },
       {
         src: image('gallery-novias-02'),
-        alt: 'Detalle de espalda de un vestido de novia (imagen provisoria).',
+        alt: 'Imagen de prueba: vestido de encaje colgado en un ambiente cálido.',
         span: 'md:col-span-7',
         ratio: 'aspect-[4/3]',
         offset: 'md:mt-16',
       },
       {
         src: image('gallery-novias-03'),
-        alt: 'Vestido de novia de silueta columna en tono champagne (imagen provisoria).',
+        alt: 'Imagen de prueba: detalle de corpiño de encaje en tono marfil.',
         span: 'md:col-span-4',
         ratio: 'aspect-[4/5]',
       },
       {
         src: image('gallery-novias-04'),
-        alt: 'Novia con velo largo en una galería de estilo clásico (imagen provisoria).',
+        alt: 'Imagen de prueba: detalle de manga de encaje sobre fondo oscuro.',
         span: 'md:col-span-8',
         ratio: 'aspect-[16/11]',
       },
@@ -100,13 +106,13 @@ export const galleryChapters: GalleryChapter[] = [
     items: [
       {
         src: image('gallery-fiesta-01'),
-        alt: 'Vestido de fiesta largo en tono arena (imagen provisoria).',
+        alt: 'Imagen de prueba: vestido de terciopelo bordó en un interior cálido.',
         span: 'md:col-span-7',
         ratio: 'aspect-[4/5]',
       },
       {
         src: image('gallery-fiesta-02'),
-        alt: 'Vestido de casamiento en tono champagne con detalles dorados (imagen provisoria).',
+        alt: 'Imagen de prueba: vestido blanco de gasa al aire libre.',
         span: 'md:col-span-5',
         ratio: 'aspect-[3/4]',
         offset: 'md:mt-20',
@@ -123,13 +129,13 @@ export const galleryChapters: GalleryChapter[] = [
     items: [
       {
         src: image('gallery-celebraciones-01'),
-        alt: 'Vestido para celebración en tonos cálidos (imagen provisoria).',
+        alt: 'Imagen de prueba: vestido de encaje negro sobre fondo oscuro.',
         span: 'md:col-span-5',
         ratio: 'aspect-[4/5]',
       },
       {
         src: image('gallery-celebraciones-02'),
-        alt: 'Detalle de textura de un vestido de celebración (imagen provisoria).',
+        alt: 'Imagen de prueba: zapatos de vestir sobre piso de madera.',
         span: 'md:col-span-7',
         ratio: 'aspect-[16/10]',
         offset: 'md:mt-12',

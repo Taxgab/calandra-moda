@@ -3,6 +3,7 @@ import { Image } from 'astro:assets';
 import { ArrowRight } from '@lucide/astro';
 import { heroImage } from '../data/gallery';
 import { site } from '../data/site';
+import TestImageBadge from './TestImageBadge.astro';
 import WhatsAppCta from './WhatsAppCta.astro';
 ---
 
@@ -51,8 +52,8 @@ import WhatsAppCta from './WhatsAppCta.astro';
       <div class="media-zoom relative aspect-[4/5] w-full">
         <Image
           src={heroImage}
-          alt="Vestido editorial en tonos marfil dentro de la boutique (imagen provisoria)."
-          widths={[520, 760, 1040, 1400]}
+          alt="Imagen de prueba: detalle de un vestido de novia en tono marfil."
+          widths={[480, 720, 960]}
           sizes="(min-width: 1024px) 46vw, 100vw"
           format="webp"
           quality={80}
@@ -61,12 +62,13 @@ import WhatsAppCta from './WhatsAppCta.astro';
           decoding="async"
           class="h-full w-full object-cover"
         />
+        <TestImageBadge />
       </div>
       <div
         class="mt-4 flex items-baseline justify-between gap-4 text-[0.55rem] uppercase tracking-[0.2em] text-muted"
       >
         <span>Novias · Fiesta · Celebraciones</span>
-        <span class="hidden shrink-0 sm:inline">Imagen provisoria</span>
+        <span class="hidden shrink-0 sm:inline">Fotografía de prueba</span>
       </div>
     </div>
   </div>

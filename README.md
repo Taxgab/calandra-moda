@@ -22,7 +22,8 @@ npm run dev       # servidor local en http://localhost:4321
 npm run build     # build de producción en dist/
 npm run preview   # sirve el resultado del build
 npm run check     # verificación de tipos (astro check)
-npm run placeholders  # regenera las imágenes provisorias de marca
+npm run test-images   # descarga y recorta las fotografías de prueba (CC0)
+npm run placeholders  # genera placeholders abstractos en src/assets/images/placeholders
 ```
 
 ---
@@ -110,20 +111,37 @@ Luego `npm run build` para regenerar el sitemap.
 
 ## Imágenes
 
-Las fotografías actuales son **placeholders de marca generados localmente** (no son fotos de otras
-boutiques). Se identifican como provisorias en la propia imagen y en la sección de galería.
+El sitio usa hoy **fotografías de prueba con licencia CC0** (StockSnap.io, indexadas por Openverse)
+para poder mostrar la maqueta completa. No son fotografías de Calandra Moda y no corresponden a sus
+productos.
 
-Para reemplazarlas por material autorizado del cliente:
+Cómo se comunican:
+
+- Barra superior de la página: "Maqueta · Fotografías de prueba que no corresponden a productos de
+  Calandra Moda".
+- Etiqueta "Imagen de prueba" sobre cada fotografía.
+- Nota en la galería y en el pie de página.
+- Textos alternativos que empiezan con "Imagen de prueba:".
+- Créditos y licencias en `src/assets/images/CREDITS.md`.
+
+Todo depende de un único interruptor: `usingTestImages` en `src/data/gallery.ts`. Al ponerlo en
+`false` desaparecen la barra, las etiquetas y las notas.
+
+### Reemplazo por fotografías reales autorizadas
 
 1. Guardar la fotografía en `src/assets/images/` con **el mismo nombre de archivo** y una proporción
-   similar (por ejemplo `hero.jpg`, `gallery-novias-01.jpg`).
-2. Actualizar el `alt` correspondiente en `src/data/gallery.ts`.
-3. Correr `npm run build`.
+   similar (por ejemplo `hero.jpg`, `gallery-novias-01.jpg`). Conviene que tengan al menos 1600 px de
+   ancho para aprovechar `srcset`.
+2. Actualizar el `alt` correspondiente en `src/data/gallery.ts` (quitar el prefijo "Imagen de prueba").
+3. Poner `usingTestImages = false` en `src/data/gallery.ts`.
+4. Ampliar los arreglos `widths` de los componentes si las fotos son más grandes.
+5. Correr `npm run build`.
 
 Astro genera versiones WebP en varios anchos, con `width`/`height` explícitos (sin CLS) y lazy
 loading salvo en el hero.
 
-Regenerar los placeholders: `npm run placeholders` (requiere Windows con .NET/System.Drawing).
+Regenerar el material de prueba: `npm run test-images` (requiere conexión). Regenerar los placeholders
+abstractos: `npm run placeholders` (Windows con .NET/System.Drawing).
 
 ---
 

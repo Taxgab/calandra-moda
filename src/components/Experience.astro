@@ -1,6 +1,7 @@
 ---
 import { Image } from 'astro:assets';
 import { experienceImage } from '../data/gallery';
+import TestImageBadge from './TestImageBadge.astro';
 
 const steps = [
   {
@@ -27,8 +28,8 @@ const steps = [
       <div class="media-zoom relative aspect-[4/5] w-full">
         <Image
           src={experienceImage}
-          alt="Asesoramiento personalizado en la boutique (imagen provisoria)."
-          widths={[420, 620, 900, 1200]}
+          alt="Imagen de prueba: novia con ramo de flores blancas."
+          widths={[420, 640, 960]}
           sizes="(min-width: 1024px) 42vw, 100vw"
           format="webp"
           quality={78}
@@ -36,8 +37,9 @@ const steps = [
           decoding="async"
           class="h-full w-full object-cover"
         />
+        <TestImageBadge />
       </div>
-      <p class="mt-4 text-[0.58rem] uppercase tracking-[0.22em] text-muted">Imagen provisoria</p>
+      <p class="mt-4 text-[0.58rem] uppercase tracking-[0.22em] text-muted">Fotografía de prueba</p>
     </div>
 
     <div class="order-1 lg:order-2">

@@ -2,6 +2,7 @@
 import { Image } from 'astro:assets';
 import { storyImage } from '../data/gallery';
 import { site } from '../data/site';
+import TestImageBadge from './TestImageBadge.astro';
 ---
 
 <section id="historia" class="bg-ink text-ivory">
@@ -37,8 +38,8 @@ import { site } from '../data/site';
         <div class="media-zoom relative aspect-[4/5] w-full bg-ink-soft/30">
           <Image
             src={storyImage}
-            alt="Interior de la boutique Calandra Moda en Lanús (imagen provisoria)."
-            widths={[420, 620, 900, 1100]}
+            alt="Imagen de prueba: perchas de madera en el interior de una boutique."
+            widths={[420, 640, 960]}
             sizes="(min-width: 1024px) 38vw, 100vw"
             format="webp"
             quality={78}
@@ -46,8 +47,9 @@ import { site } from '../data/site';
             decoding="async"
             class="h-full w-full object-cover"
           />
+          <TestImageBadge />
         </div>
-        <p class="mt-4 text-[0.58rem] uppercase tracking-[0.22em] text-ivory/55">Imagen provisoria</p>
+        <p class="mt-4 text-[0.58rem] uppercase tracking-[0.22em] text-ivory/55">Fotografía de prueba</p>
       </div>
     </div>
   </div>

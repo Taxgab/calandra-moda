@@ -1,6 +1,7 @@
 ---
 import { Image } from 'astro:assets';
 import { galleryChapters } from '../data/gallery';
+import TestImageBadge from './TestImageBadge.astro';
 import WhatsAppCta from './WhatsAppCta.astro';
 
 const intro = {
@@ -25,7 +26,7 @@ const intro = {
       <p
         class="max-w-[17rem] border-l border-ink/15 pl-5 text-[0.62rem] uppercase leading-[1.9] tracking-[0.16em] text-muted md:text-left"
       >
-        Imágenes provisorias. Las fotografías definitivas se publicarán con autorización.
+        Fotografías de prueba: no corresponden a productos de Calandra Moda.
       </p>
     </div>
 
@@ -47,7 +48,7 @@ const intro = {
                   <Image
                     src={item.src}
                     alt={item.alt}
-                    widths={[400, 640, 900, 1200]}
+                    widths={[400, 640, 960]}
                     sizes="(min-width: 1024px) 45vw, (min-width: 640px) 50vw, 100vw"
                     format="webp"
                     quality={78}
@@ -55,6 +56,7 @@ const intro = {
                     decoding="async"
                     class="h-full w-full object-cover"
                   />
+                  <TestImageBadge class="bottom-2 left-2" />
                 </figure>
               ))}
             </div>
