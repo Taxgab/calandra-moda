@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+
+# Sitemap generado por @astrojs/sitemap.
+# Recordá actualizar el dominio cuando esté confirmado.
+Sitemap: https://www.calandramoda.com.ar/sitemap-index.xml
