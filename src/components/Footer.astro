@@ -1,0 +1,97 @@
+---
+import { ArrowUpRight, MapPin } from '@lucide/astro';
+import { isInstagramConfigured, isWhatsAppConfigured, navigation, site, whatsappUrl } from '../data/site';
+import IconInstagram from './IconInstagram.astro';
+
+const year = new Date().getFullYear();
+const whatsappHref = whatsappUrl('contacto');
+const whatsappLinkProps = isWhatsAppConfigured ? { target: '_blank', rel: 'noopener noreferrer' } : {};
+---
+
+<footer class="bg-ink text-ivory">
+  <div class="shell py-16 md:py-20">
+    <div class="grid gap-12 md:grid-cols-[1.3fr_0.8fr_1fr] md:gap-10">
+      <div>
+        <a href="/#inicio" class="inline-flex flex-col leading-none text-ivory" aria-label="Calandra Moda — inicio">
+          <span class="font-display text-[1.8rem] leading-none tracking-[0.01em]">Calandra</span>
+          <span class="mt-[0.32rem] pl-[0.12em] text-[0.5rem] uppercase tracking-[0.46em] text-gold-soft">Moda</span>
+        </a>
+        <p class="mt-6 max-w-[18rem] font-display text-[1.25rem] italic leading-snug text-ivory/70">
+          {site.tagline}
+        </p>
+      </div>
+
+      <nav aria-label="Navegación del pie de página">
+        <p class="text-[0.56rem] uppercase tracking-[0.26em] text-gold-soft">Explorar</p>
+        <ul class="mt-5 space-y-3">
+          {
+            navigation.map((item) => (
+              <li>
+                <a
+                  href={item.href}
+                  class="text-[0.72rem] uppercase tracking-[0.16em] text-ivory/70 transition-colors duration-300 hover:text-gold-soft"
+                >
+                  {item.label}
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+      </nav>
+
+      <div>
+        <p class="text-[0.56rem] uppercase tracking-[0.26em] text-gold-soft">Contacto</p>
+        <ul class="mt-5 space-y-4 text-[0.8rem] leading-relaxed text-ivory/70">
+          <li>
+            <a
+              href={whatsappHref}
+              {...whatsappLinkProps}
+              class="inline-flex items-center gap-2 transition-colors duration-300 hover:text-gold-soft"
+            >
+              WhatsApp
+              <ArrowUpRight size={13} stroke-width={1.5} aria-hidden="true" />
+            </a>
+          </li>
+          {
+            isInstagramConfigured ? (
+              <li>
+                <a
+                  href={site.contact.instagramUrl}
+                  target="_blank"
+                  rel="noopener noreferrer me"
+                  class="inline-flex items-center gap-2 transition-colors duration-300 hover:text-gold-soft"
+                >
+                  <IconInstagram size={14} />
+                  {site.contact.instagramHandle || 'Instagram'}
+                </a>
+              </li>
+            ) : (
+              <li class="inline-flex items-center gap-2 text-ivory/55">
+                <IconInstagram size={14} />
+                Instagram pendiente
+              </li>
+            )
+          }
+          <li>
+            <a
+              href={site.address.mapsUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="inline-flex items-start gap-2 transition-colors duration-300 hover:text-gold-soft"
+            >
+              <MapPin size={14} stroke-width={1.5} aria-hidden="true" class="mt-0.5 shrink-0" />
+              <span>{site.address.venue}, {site.address.street}, {site.address.locality}</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div
+      class="hairline-light mt-14 flex flex-col gap-3 pt-6 text-[0.66rem] tracking-[0.04em] text-ivory/60 md:flex-row md:items-center md:justify-between"
+    >
+      <p>© {year} Calandra Moda. Todos los derechos reservados.</p>
+      <p>Boutique de vestidos · Lanús Este, Buenos Aires</p>
+    </div>
+  </div>
+</footer>

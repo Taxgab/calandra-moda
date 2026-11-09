@@ -1,0 +1,70 @@
+---
+import { Image } from 'astro:assets';
+import { experienceImage } from '../data/gallery';
+
+const steps = [
+  {
+    index: '01',
+    title: 'Escuchamos qué estás buscando',
+    text: 'Antes de mostrarte opciones nos interesa entender la ocasión, tu estilo y qué te imaginás cuando pensás en ese vestido.',
+  },
+  {
+    index: '02',
+    title: 'Te asesoramos según tu ocasión y estilo',
+    text: 'Te contamos qué siluetas, texturas y caídas funcionan mejor según el tipo de evento, para que la elección tenga sentido para vos.',
+  },
+  {
+    index: '03',
+    title: 'Te acompañamos durante la elección',
+    text: 'Estamos en cada paso del proceso, desde la primera consulta hasta que encontrás el vestido que querés para tu momento.',
+  },
+] as const;
+---
+
+<section id="experiencia" class="border-t border-line/70 bg-ivory">
+  <div class="shell grid items-center gap-12 py-20 md:py-28 lg:grid-cols-[0.95fr_1.05fr] lg:gap-20 lg:py-32">
+    <div class="order-2 lg:order-1">
+      <div class="media-zoom relative aspect-[4/5] w-full">
+        <Image
+          src={experienceImage}
+          alt="Asesoramiento personalizado en la boutique (imagen provisoria)."
+          widths={[420, 620, 900, 1200]}
+          sizes="(min-width: 1024px) 42vw, 100vw"
+          format="webp"
+          quality={78}
+          loading="lazy"
+          decoding="async"
+          class="h-full w-full object-cover"
+        />
+      </div>
+      <p class="mt-4 text-[0.58rem] uppercase tracking-[0.22em] text-muted">Imagen provisoria</p>
+    </div>
+
+    <div class="order-1 lg:order-2">
+      <p class="eyebrow">Nuestra experiencia</p>
+      <h2
+        class="mt-6 max-w-[34rem] font-display text-[clamp(2.05rem,4.2vw,3.4rem)] font-normal leading-[1.08] tracking-[-0.01em] text-ink"
+      >
+        Más que elegir un vestido, queremos que disfrutes el momento.
+      </h2>
+      <p class="mt-5 max-w-[32rem] text-[0.98rem] leading-[1.85] text-muted">
+        Elegir un vestido es una decisión importante y también una experiencia. Nuestro trabajo es
+        que la transites con tranquilidad, información y compañía.
+      </p>
+
+      <ol class="mt-10 border-t border-line">
+        {
+          steps.map((step) => (
+            <li class="flex gap-5 border-b border-line py-6 md:gap-7 md:py-7">
+              <span class="pt-1 font-display text-[0.85rem] leading-none text-gold">{step.index}</span>
+              <div>
+                <h3 class="font-display text-[1.28rem] font-normal leading-snug text-ink">{step.title}</h3>
+                <p class="mt-2 max-w-[30rem] text-[0.9rem] leading-[1.8] text-muted">{step.text}</p>
+              </div>
+            </li>
+          ))
+        }
+      </ol>
+    </div>
+  </div>
+</section>

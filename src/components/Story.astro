@@ -1,0 +1,54 @@
+---
+import { Image } from 'astro:assets';
+import { storyImage } from '../data/gallery';
+import { site } from '../data/site';
+---
+
+<section id="historia" class="bg-ink text-ivory">
+  <div class="shell py-20 md:py-28 lg:py-32">
+    <div class="grid items-center gap-12 lg:grid-cols-[1.1fr_0.9fr] lg:gap-20">
+      <div>
+        <p class="eyebrow text-gold-soft">La boutique</p>
+        <h2
+          class="mt-6 max-w-[36rem] font-display text-[clamp(2.05rem,4.2vw,3.6rem)] font-normal leading-[1.08] tracking-[-0.01em] text-ivory"
+        >
+          Más de {site.experienceYears} años acompañando elecciones importantes.
+        </h2>
+
+        <div class="mt-8 max-w-[34rem] space-y-5 text-[0.95rem] leading-[1.95] text-ivory/70">
+          <p>
+            Calandra Moda es una boutique de vestidos en Lanús Este, en Gran Galería Lanús. Hace más
+            de {site.experienceYears} años trabajamos con una convicción simple: elegir un vestido no
+            es un trámite, es un momento que merece tiempo, escucha y asesoramiento.
+          </p>
+          <p>
+            Recibimos a cada persona de forma personalizada, sin apuro, para entender qué busca y
+            ayudarla a encontrar la prenda adecuada para su gran momento. Esa forma de trabajar es la
+            que nos define y la que sostiene la confianza de quienes nos eligen.
+          </p>
+        </div>
+
+        <p class="mt-9 font-display text-[1.35rem] italic leading-snug text-gold-soft">
+          Tu vestido. Tu momento. Nuestra experiencia.
+        </p>
+      </div>
+
+      <div class="lg:pl-4">
+        <div class="media-zoom relative aspect-[4/5] w-full bg-ink-soft/30">
+          <Image
+            src={storyImage}
+            alt="Interior de la boutique Calandra Moda en Lanús (imagen provisoria)."
+            widths={[420, 620, 900, 1100]}
+            sizes="(min-width: 1024px) 38vw, 100vw"
+            format="webp"
+            quality={78}
+            loading="lazy"
+            decoding="async"
+            class="h-full w-full object-cover"
+          />
+        </div>
+        <p class="mt-4 text-[0.58rem] uppercase tracking-[0.22em] text-ivory/55">Imagen provisoria</p>
+      </div>
+    </div>
+  </div>
+</section>
